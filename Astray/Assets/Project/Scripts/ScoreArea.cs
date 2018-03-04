@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class ScoreArea : MonoBehaviour {
     public Text countText;
     public Text winText;
-    private int count;
+    private string winT;
 
     public GameObject effectObject;
     private GameController gameController;
     private void Start()
     {
         setEffect();
-        count = 1;
+        winT="";
         SetCountText();
     }
 
@@ -26,13 +26,13 @@ public class ScoreArea : MonoBehaviour {
     {
         if (otherCollider.GetComponent<Ball>() != null) {
             effectObject.SetActive(true);
-            count = count + 1;
+            winT = "Goal!";
             SetCountText();
         }
     }
 
     void SetCountText()
     {
-        countText.text = "Count: " + count;
+        countText.text = winT;
     }
 }
