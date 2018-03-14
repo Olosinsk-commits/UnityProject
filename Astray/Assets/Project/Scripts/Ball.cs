@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Ball : MonoBehaviour {
 
-    public GameObject trailObject;
+    public GameObject trailObject; //reference to the trail effects, set in editor
 	// Use this for initialization
 	void Start () {
         trailObject.SetActive(false);

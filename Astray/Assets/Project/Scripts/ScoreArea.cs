@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ScoreArea : MonoBehaviour {
-    public Text countText;
+public class ScoreArea : MonoBehaviour
+{
+    public Text countText;//reference to the ScoreText gameobject, set in editor
     public Text winText;
     private string winT;
 
@@ -13,7 +14,7 @@ public class ScoreArea : MonoBehaviour {
     private void Start()
     {
         setEffect();
-        winT="";
+        winT = "";
         SetCountText();
     }
 
@@ -22,9 +23,11 @@ public class ScoreArea : MonoBehaviour {
         effectObject.SetActive(false);
     }
 
-    private void OnTriggerEnter(Collider otherCollider)
+    //OnTriggerEnter is called when the Collider other enters the trigger.
+    private void OnTriggerEnter(Collider otherCollider) //if ball hits basket collider
     {
-        if (otherCollider.GetComponent<Ball>() != null) {
+        if (otherCollider.GetComponent<Ball>() != null)
+        {
             effectObject.SetActive(true);
             winT = "Goal!";
             SetCountText();
